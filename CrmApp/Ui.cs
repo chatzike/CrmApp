@@ -39,6 +39,33 @@ namespace CrmApp
 
         }
 
+
+        public Customer CreateCustomer()
+        {
+            Customer customer = new Customer();
+            //try-catch block to manage user's input
+            try
+            {
+
+                Console.WriteLine("Give the id ");
+                customer.Id = Int32.Parse(Console.ReadLine());
+                Console.WriteLine("Give the name ");
+                customer.Name = Console.ReadLine();
+                Console.WriteLine("Give the sex ");
+                customer.Sex = Int32.Parse(Console.ReadLine());
+
+
+                return customer;
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("You have not completed the questions properly." +
+                    " Please try again.");
+                return null;
+            }
+
+        }
+
         public int Menu()
         {
             Console.WriteLine("1.  Add a customer  2.Add a product   3. Display basket " +
@@ -57,10 +84,7 @@ namespace CrmApp
         }
 
 
-        public Customer CreateCustomer()
-        {
-            return null;
-        }
+
 
         public Basket CreateBasket()
         {
@@ -73,7 +97,7 @@ namespace CrmApp
                 switch (choice)
                 {
                     case 1:
-                        Customer customer = CreateCustomer();   //simplirose diergasia add customer
+                        Customer customer = CreateCustomer();  
                         break;
                     case 2:
                         Product product = CreateProduct();
